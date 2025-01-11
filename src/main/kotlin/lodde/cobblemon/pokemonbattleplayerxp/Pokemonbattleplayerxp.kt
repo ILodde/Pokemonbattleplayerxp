@@ -30,31 +30,37 @@ object Pokemonbattleplayerxp : ModInitializer {
 
 
     private fun gainxp(event: BattleVictoryEvent) {
-        //val winners = event.winners
-        //println(winners[0].uuid)
-        //println(winners[0].type)
-        //println(winners[0])
-        //val server = net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.getServer()
         /*
-        if(event.losers[0].type == NPC){
-            println("AAA    "+event.losers[0].battle)
-            println("AAA    "+event.losers[0].pokemonList[0].entity!!.pokemon.level)
-            //event.wild_pokemon_winners
+        //val winners = event.winners
+         //println(winners[0].uuid)
+         //println(winners[0].type)
+         //println(winners[0])
+         //val server = net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.getServer()
 
-        } else if (event.losers[0].type == WILD){
-            println("BBB    "+event.losers[0].battle)
-            //var a = event.losers[0].pokemonList[0].entity!!.pokemon.level
-            println("BBB    "+ event.losers[0].pokemonList[0].entity!!.pokemon.level)
-        } else {
-        println("CCC")
+         if(event.losers[0].type == NPC){
+             println("AAA    "+event.losers[0].battle)
+             println("AAA    "+event.losers[0].pokemonList[0].entity!!.pokemon.level)
+             //event.wild_pokemon_winners
+
+         } else if (event.losers[0].type == WILD){
+             println("BBB    "+event.losers[0].battle)
+             //var a = event.losers[0].pokemonList[0].entity!!.pokemon.level
+             println("BBB    "+ event.losers[0].pokemonList[0].entity!!.pokemon.level)
+         } else {
+         println("CCC")
+         }
+
+         val pokemon_level = event.losers[0].pokemonList[0].entity!!.pokemon.level
+         */
+        //***********************************************
+        //println("AAAAAAAAAAAAAAAAaa         "+event.losers.elementAt(0).pokemonList.elementAt(0).originalPokemon.level);
+        var median = 0
+
+
+        event.losers.elementAt(0).pokemonList.forEach { pk ->
+            median += pk.originalPokemon.level;
         }
 
-        val pokemon_level = event.losers[0].pokemonList[0].entity!!.pokemon.level
-        */
-        //***********************************************
-        var median = 0
-        event.losers[0].pokemonList.forEach { pk ->
-            median += pk.entity!!.pokemon.level}
         val howmanypk = event.losers[0].pokemonList.size
         var mymedianlevel: Float = ((median/howmanypk).toFloat())
         mymedianlevel = ceil(mymedianlevel)
