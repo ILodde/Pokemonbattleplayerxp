@@ -13,6 +13,8 @@ repositories {
 	maven("https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/")
 	maven("https://maven.impactdev.net/repository/development/")
 	maven("https://api.modrinth.com/maven")
+	maven("https://maven.wispforest.io/releases")
+	maven("https://maven.terraformersmc.com/")
 }
 
 dependencies {
@@ -28,6 +30,18 @@ dependencies {
 
 	// Cobblemon
 	modImplementation("com.cobblemon:fabric:${property("cobblemon_version")}")
+
+
+	modImplementation("io.wispforest:owo-lib:${property("owo_version")}")
+	include("io.wispforest:owo-sentinel:${property("owo_version")}")
+
+	//modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
+
+	modImplementation("maven.modrinth:modmenu:${property("modmenu_modrinth_id")}")
+	//modRuntimeOnly("maven.modrinth:modmenu:${project.modmenu_modrinth_id}")
+
+
+
 }
 
 tasks {
