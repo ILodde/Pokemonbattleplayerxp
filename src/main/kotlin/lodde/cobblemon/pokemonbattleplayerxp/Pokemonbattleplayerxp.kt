@@ -8,19 +8,18 @@ import com.cobblemon.mod.common.api.events.battles.BattleVictoryEvent
 import net.fabricmc.api.ModInitializer
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
-
-import lodde.cobblemon.pokemonbattleplayerxp.config.PokemonbattleplayerxpConfig
 import java.util.*
 import com.cobblemon.mod.common.util.getPlayer
+//import lodde.cobblemon.pokemonbattleplayerxp.config.PokemonbattleplayerxpConfig
 
 object Pokemonbattleplayerxp : ModInitializer {
     const val MOD_ID = "pokemon_battle_player_xp"
-    private lateinit var pokemonbattleplayerxpConfig: PokemonbattleplayerxpConfig
+    //private lateinit var pokemonbattleplayerxpConfig: PokemonbattleplayerxpConfig
 
     override fun onInitialize() {
 
 
-        pokemonbattleplayerxpConfig = PokemonbattleplayerxpConfig.Builder.load()
+        //pokemonbattleplayerxpConfig = PokemonbattleplayerxpConfig.Builder.load()
 
 
         CobblemonEvents.BATTLE_VICTORY.subscribe { event ->
@@ -70,7 +69,7 @@ object Pokemonbattleplayerxp : ModInitializer {
 
 
 
-        val amount = calculateXp(mymedianlevel.toInt()) * pokemonbattleplayerxpConfig.multiplier.toInt()
+        val amount = calculateXp(mymedianlevel.toInt()) //* pokemonbattleplayerxpConfig.multiplier.toInt()
 
         event.winners
             .flatMap { it.getPlayerUUIDs().mapNotNull(UUID::getPlayer) }
