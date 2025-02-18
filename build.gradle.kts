@@ -2,6 +2,7 @@ plugins {
 	id("java")
 	id("fabric-loom") version("1.4-SNAPSHOT")
 	kotlin("jvm") version ("1.8.20")
+	id("com.google.devtools.ksp") version "1.8.20-1.0.10"
 }
 
 group = property("maven_group")!!
@@ -15,6 +16,8 @@ repositories {
 	maven("https://api.modrinth.com/maven")
 	maven("https://maven.wispforest.io/releases")
 	maven("https://maven.terraformersmc.com/")
+	maven("https://maven.wispforest.io")
+	maven("https://maven.kosmx.dev/")
 }
 
 dependencies {
@@ -39,6 +42,9 @@ dependencies {
 
 	modImplementation("maven.modrinth:modmenu:${property("modmenu_modrinth_id")}")
 	//modRuntimeOnly("maven.modrinth:modmenu:${project.modmenu_modrinth_id}")
+
+	ksp("dev.kosmx.kowoconfig:ksp-owo-config:0.1.0") // Keep it updated
+
 
 
 
